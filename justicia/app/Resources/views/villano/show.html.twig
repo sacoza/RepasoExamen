@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Villano</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ villano.id }}</td>
+            </tr>
+            <tr>
+                <th>Villano</th>
+                <td>{{ villano.villano }}</td>
+            </tr>
+            <tr>
+                <th>Superpoder</th>
+                <td>{{ villano.superpoder }}</td>
+            </tr>
+            <tr>
+                <th>Escondite</th>
+                <td>{{ villano.escondite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villano_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('villano_edit', { 'id': villano.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

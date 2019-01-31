@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Justicium</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ justicium.id }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ justicium.username }}</td>
+            </tr>
+            <tr>
+                <th>Superpoder</th>
+                <td>{{ justicium.superpoder }}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>{{ justicium.role }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('justicia_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('justicia_edit', { 'id': justicium.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

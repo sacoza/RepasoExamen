@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Justicias list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Superpoder</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for justicium in justicias %}
+            <tr>
+                <td><a href="{{ path('justicia_show', { 'id': justicium.id }) }}">{{ justicium.id }}</a></td>
+                <td>{{ justicium.username }}</td>
+                <td>{{ justicium.superpoder }}</td>
+                <td>{{ justicium.role }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('justicia_show', { 'id': justicium.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('justicia_edit', { 'id': justicium.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('justicia_new') }}">Create a new justicium</a>
+        </li>
+    </ul>
+{% endblock %}

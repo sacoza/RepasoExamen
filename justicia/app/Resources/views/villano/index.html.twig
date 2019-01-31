@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Villanos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Villano</th>
+                <th>Superpoder</th>
+                <th>Escondite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for villano in villanos %}
+            <tr>
+                <td><a href="{{ path('villano_show', { 'id': villano.id }) }}">{{ villano.id }}</a></td>
+                <td>{{ villano.villano }}</td>
+                <td>{{ villano.superpoder }}</td>
+                <td>{{ villano.escondite }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('villano_show', { 'id': villano.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('villano_edit', { 'id': villano.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villano_new') }}">Create a new villano</a>
+        </li>
+    </ul>
+{% endblock %}
