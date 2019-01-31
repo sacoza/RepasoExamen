@@ -1,0 +1,15 @@
+{% extends('base.html.twig')%}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block body %}
+<br>
+{{ form_start(log) }}
+{{ form_widget(log) }}
+{{ form_end(log) }}
+<br>
+<a href="{{path('lista')}}" id="link">Usuarios</a>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+
+{% extends('base.html.twig')%}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block body %}
+
+<table>
+
+<ul id="peluqueria">
+  {% for usu in usuarios %}
+  <tr>
+      <td><li>{{ usu.id }}</li></td>
+      <td><li>{{ usu.usuarios }}</li></td>
+      <td><li>{{ usu.contrasenya }}</li></td>
+      <td><li>{{ usu.email }}</li></td>
+      <td><li><a href="{{path('actua',{'id':usu.id})}}" id="link">Actualizar</a></li></td>
+      <td><li><a href="{{path('buscar',{'id':usu.id})}}" id="link">Ver</a></li></td>
+      <td><li><a href="{{path('Form')}}" id="link">Crear Usuario</a></li></td>
+      </tr>
+    {% endfor %}
+</ul>
+
+</table>
+{% endblock %}
